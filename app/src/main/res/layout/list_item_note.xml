@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="140dp"
+    android:layout_height="180dp"
+    android:gravity="center_horizontal"
+    android:layout_margin="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_list_tv"
+        tools:text="God is a healer and he will heal you"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textStyle="bold"
+        android:maxLength="50"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/preacher_list_tv"
+        tools:text="Pastor williams"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/content_list_tv"
+        tools:text="I have been doing Android app development for over two years now and I have gone through training by Google and Udacity.
+
+
+I will upload the app on google PlayStore
+
+Hi, I would love to work on your project
+
+Hey, I'm interested in your project. Please send me a message so that we can discuss more."
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:maxLength="50" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_list_tv"
+        tools:text="20 April 2017"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+</LinearLayout>
