@@ -17,8 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.AddNoteActivity"
-            android:parentActivityName=".ui.NotesBibleActivity"></activity>
+        <activity
+            android:name=".ui.AddNoteActivity"
+            android:theme="@style/MyTheme"
+            android:parentActivityName=".ui.NotesBibleActivity" />
 
         <provider
             android:authorities="com.example.adeogo.silavoscresenye"
