@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".ui.AddNoteActivity"
-            android:theme="@style/MyTheme"
+            android:theme="@style/AppTheme"
             android:parentActivityName=".ui.NotesBibleActivity" />
 
         <provider

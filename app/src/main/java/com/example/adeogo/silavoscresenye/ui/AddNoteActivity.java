@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -34,42 +35,61 @@ public class AddNoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
 
+        viewPager = (ViewPager) findViewById(R.id.htab_viewpager);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.htab_tabs);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
+        
+        setupViewPager(viewPager);
+       viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+           @Override
+           public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+           }
+
+           @Override
+           public void onPageSelected(int position) {
+               Toast.makeText(AddNoteActivity.this, Integer.toString(position), Toast.LENGTH_SHORT).show();
+
+           }
+
+           @Override
+           public void onPageScrollStateChanged(int state) {
+
+           }
+       });
 
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-
-                viewPager.setCurrentItem(tab.getPosition());
-                setupViewPager(viewPager);
-
-                switch (tab.getPosition()) {
-                    case 0:
-                        Toast.makeText(AddNoteActivity.this, "One", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
-                        Toast.makeText(AddNoteActivity.this, "Two", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        Toast.makeText(AddNoteActivity.this, "Three", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-
-        });
+//        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//
+//                viewPager.setCurrentItem(tab.getPosition());
+//                setupViewPager(viewPager);
+//
+//                switch (tab.getPosition()) {
+//                    case 0:
+//                        break;
+//                    case 1:
+//                        Toast.makeText(AddNoteActivity.this, "Two", Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case 2:
+//                        Toast.makeText(AddNoteActivity.this, "Three", Toast.LENGTH_SHORT).show();
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//        });
     }
 
 
