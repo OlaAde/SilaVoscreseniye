@@ -42,7 +42,9 @@ public class NetworkUtil {
 
             boolean hasInput = scanner.hasNext();
             if (hasInput) {
+                Log.v("E showwwwwwwwwwwbnm,...", scanner.next());
                 return scanner.next();
+
             } else {
                 return null;
             }

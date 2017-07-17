@@ -13,21 +13,30 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
             android:hint="Title of note"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:background="@android:color/transparent"
             android:id="@+id/add_title_edit_text"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/preacher_edit_text"
-            android:layout_margin="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:textStyle="italic"
+            android:background="@android:color/transparent"
             android:hint="Pst Ademide"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Notes"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@android:color/transparent"
             android:id="@+id/content_add_string"/>
 
     </LinearLayout>
