@@ -28,14 +28,16 @@
             android:layout_marginBottom="8dp"
             android:textStyle="italic"
             android:background="@android:color/transparent"
-            android:hint="Pst Ademide"/>
+            android:hint="Speaker"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Notes"
+            android:hint="Note"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:textSize="15sp"
+            android:textStyle="normal"
             android:background="@android:color/transparent"
             android:id="@+id/content_add_string"/>
 
