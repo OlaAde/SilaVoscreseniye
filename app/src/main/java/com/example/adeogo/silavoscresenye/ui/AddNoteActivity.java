@@ -1,30 +1,13 @@
 package com.example.adeogo.silavoscresenye.ui;
 
-import android.content.ContentValues;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.adeogo.silavoscresenye.R;
 import com.example.adeogo.silavoscresenye.adapter.ViewPagerAdapter;
-import com.example.adeogo.silavoscresenye.data.NotesContract;
-
-import static com.example.adeogo.silavoscresenye.ui.NotesFragment.saveNote;
-import android.support.v7.graphics.Palette;
-import android.widget.Toast;
 
 public class AddNoteActivity extends AppCompatActivity {
 
@@ -106,21 +89,18 @@ public class AddNoteActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.add_notes, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int idSelected = item.getItemId();
-        switch (idSelected){
-            case R.id.action_save:
-                ContentValues contentValues = saveNote();
-                getContentResolver().insert(NotesContract.NotesEntry.CONTENT_URI,contentValues);
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.add_notes, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        int idSelected = item.getItemId();
+//        switch (idSelected){
+//
+//        }
+//        return super.onOptionsItemSelected(item);
+//    }
 }
