@@ -4,37 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="140dp"
     android:layout_height="180dp"
-    android:background="@color/colorAccent"
-    android:layout_gravity="center_horizontal"
-    android:padding="8dp">
+    android:layout_gravity="center_horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        >
+        android:layout_margin="8dp"
+        android:padding="3dp"
+        android:background="@color/colorAccent"
+        android:gravity="center">
 
 
         <TextView
             android:layout_width="140dp"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
+            android:maxHeight="150dp"
             android:id="@+id/title_list_tv"
             tools:text="God is a healer and he will heal you"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
-            android:maxLength="50"/>
+            android:maxLength="50"
+            android:gravity="center"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/preacher_list_tv"
             tools:text="Pastor williams"
+            android:gravity="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/content_list_tv"
+            android:gravity="center"
             tools:text="I have been doing Android app development for over two years now and I have gone through training by Google and Udacity.
 
 
