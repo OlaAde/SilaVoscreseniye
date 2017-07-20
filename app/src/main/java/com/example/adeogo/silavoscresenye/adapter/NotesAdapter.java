@@ -28,7 +28,6 @@ public class NotesAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     private final NotesAdapterOnclickHandler mClickHandler;
-    private Random mRandom = new Random();
 
     public interface NotesAdapterOnclickHandler{
         void voidMethod(Cursor mCursor, int adapterPosition);
@@ -52,7 +51,6 @@ public class NotesAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder>
         @Override
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
-
             mClickHandler.voidMethod(mCursor, adapterPosition);
         }
     }

@@ -43,4 +43,11 @@ public class NotesContract {
         longResult = cursor.getLong(cursorColumnIndex);
         return longResult;
     }
+
+    public static int getIntFromCursor(@NonNull Cursor cursor, String columnName){
+        int intResult;
+        int cursorColumnIndex = cursor.getColumnIndex(columnName);
+        intResult = cursor.getInt(cursorColumnIndex);
+        return intResult;
+    }
 }

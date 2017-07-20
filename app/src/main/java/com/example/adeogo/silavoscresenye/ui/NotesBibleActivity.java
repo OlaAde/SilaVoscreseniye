@@ -11,7 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.adeogo.silavoscresenye.R;
 import com.example.adeogo.silavoscresenye.adapter.NotesAdapter;
@@ -27,6 +29,12 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
     private NotesAdapter mAdapter;
     private GridLayoutManager mLayoutManager;
     private FloatingActionButton floatingActionButton;
+
+    private String mTitle;
+    private String mPreacher;
+    private String mContentString;
+    private long mDate;
+    private int mCursorIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +65,21 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
 
     @Override
     public void voidMethod(Cursor mCursor, int adapterPosition) {
-
+        mCursor.moveToPosition(adapterPosition);
+        mTitle = NotesContract.getStringFromCursor(mCursor, NotesContract.NotesEntry.COLUMN_NOTE_TITLE);
+        mPreacher = NotesContract.getStringFromCursor(mCursor,NotesContract.NotesEntry.COLUMN_PREACHER);
+        mContentString = NotesContract.getStringFromCursor(mCursor,NotesContract.NotesEntry.COLUMN_NOTE_CONTENT);
+        mDate = NotesContract.getLongFromCursor(mCursor, NotesContract.NotesEntry.COLUMN_DATE_CREATED);
+        mCursorIndex = NotesContract.getIntFromCursor(mCursor, NotesContract.NotesEntry._ID);
+        Intent intent = new Intent(NotesBibleActivity.this, AddNoteActivity.class);
+        intent.putExtra("Title", mTitle);
+        Toast.makeText(this, "Heree e e " + mCursorIndex, Toast.LENGTH_SHORT).show();
+        Log.v("Title", mTitle);
+        intent.putExtra("Preacher", mPreacher);
+        intent.putExtra("ContentString", mContentString);
+        intent.putExtra("DateCreated", mDate);
+        intent.putExtra("CursorIndex", mCursorIndex);
+        startActivity(intent);
     }
 
     public class CursorCallback implements LoaderManager.LoaderCallbacks<Cursor> {
