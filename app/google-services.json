@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "832818965079",
+    "firebase_url": "https://sila-voscresenye.firebaseio.com",
+    "project_id": "sila-voscresenye",
+    "storage_bucket": "sila-voscresenye.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832818965079:android:18f6845bc8aa12ba",
+        "android_client_info": {
+          "package_name": "com.example.adeogo.silavoscresenye"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "832818965079-uutm6gl9l1n7oie61tb2b23sd4d0gjmf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adeogo.silavoscresenye",
+            "certificate_hash": "b34a90baae620a857abef8626028cc77f5ee3f4b"
+          }
+        },
+        {
+          "client_id": "832818965079-fdufjcsleimfe5oa419mscicftht08ac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD23256QG-T5lb2B9R3CkxRKaNaXLBafW8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "832818965079-fdufjcsleimfe5oa419mscicftht08ac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -45,9 +45,9 @@ public class NotesFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_notes, container, false);
         setHasOptionsMenu(true);
-        mTitleTextView = rootView.findViewById(R.id.add_title_edit_text);
-        mPreacherTextView = rootView.findViewById(R.id.preacher_edit_text);
-        mContentTextView = rootView.findViewById(R.id.content_add_string);
+        mTitleTextView = (TextInputEditText) rootView.findViewById(R.id.add_title_edit_text);
+        mPreacherTextView = (EditText) rootView.findViewById(R.id.preacher_edit_text);
+        mContentTextView = (EditText) rootView.findViewById(R.id.content_add_string);
         Intent intent = getActivity().getIntent();
         mTitle = intent.getStringExtra("Title");
         mPreacher = intent.getStringExtra("Preacher");

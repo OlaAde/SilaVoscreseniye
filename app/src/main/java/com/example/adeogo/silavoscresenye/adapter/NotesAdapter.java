@@ -41,10 +41,10 @@ public class NotesAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         public NotesAdapterViewHolder(View itemView) {
             super(itemView);
-            mTitleTextView = itemView.findViewById(R.id.title_list_tv);
-            mPreacherTextView = itemView.findViewById(R.id.preacher_list_tv);
-            mDateCreatedTextView = itemView.findViewById(R.id.date_list_tv);
-            mContentTextView = itemView.findViewById(R.id.content_list_tv);
+            mTitleTextView = (TextView) itemView.findViewById(R.id.title_list_tv);
+            mPreacherTextView = (TextView) itemView.findViewById(R.id.preacher_list_tv);
+            mDateCreatedTextView = (TextView) itemView.findViewById(R.id.date_list_tv);
+            mContentTextView = (TextView) itemView.findViewById(R.id.content_list_tv);
             itemView.setOnClickListener(this);
         }
 
