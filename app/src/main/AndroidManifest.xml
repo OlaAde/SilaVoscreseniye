@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.adeogo.silavoscresenye">
-        <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,24 +12,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.NotesBibleActivity">
 
         </activity>
-        <activity android:name=".ui.NotesBibleActivity">
+        <activity
+            android:name=".ui.AddNoteActivity"
+            android:parentActivityName=".ui.NotesBibleActivity"
+            android:theme="@style/AppTheme" />
+
+        <provider
+            android:name=".data.NotesProvider"
+            android:authorities="com.example.adeogo.silavoscresenye"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.AddNoteActivity"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".ui.NotesBibleActivity" />
-        <provider
-            android:authorities="com.example.adeogo.silavoscresenye"
-            android:name=".data.NotesProvider"
-            android:exported="false"/>
     </application>
 
 </manifest>

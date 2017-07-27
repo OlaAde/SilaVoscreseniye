@@ -2,18 +2,18 @@ package com.example.adeogo.silavoscresenye.ui;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.adeogo.silavoscresenye.BuildConfig;
@@ -26,9 +26,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Arrays;
-import java.util.Objects;
 
-public class NotesBibleActivity extends AppCompatActivity implements NotesAdapter.NotesAdapterOnclickHandler {
+public class NotesFullFragment extends Fragment implements NotesAdapter.NotesAdapterOnclickHandler {
 
     private static final int NOTES_LOADER_ID = 1;
     private RecyclerView mRecyclerView;
@@ -48,9 +47,10 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
     FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes_bible);
+        View rootView = inflater.inflate(R.layout.fragment_notes_bible, container, false);
 
         mFireBaseAuth = FirebaseAuth.getInstance();
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
@@ -60,7 +60,7 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
                 if (firebaseUser != null){
                     //signed in
                     String userName = firebaseUser.getDisplayName();
-                    Toast.makeText(NotesBibleActivity.this, userName + " is logged in.!!! ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), userName + " is logged in.!!! ", Toast.LENGTH_SHORT).show();
                 }else {
                     //signed out
                     startActivityForResult(
@@ -76,14 +76,14 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
                 }
             }
         };
-        Stetho.initializeWithDefaults(this);
-        mAdapter = new NotesAdapter(this, this);
-        mRecyclerView = (RecyclerView) findViewById(R.id.notes_rv);
-        floatingActionButton = (FloatingActionButton) findViewById(R.id.fab);
-        mLayoutManager = new GridLayoutManager(this,3);
+        Stetho.initializeWithDefaults(getContext());
+        mAdapter = new NotesAdapter(getContext(), NotesFullFragment.this);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.notes_rv);
+        floatingActionButton = (FloatingActionButton) rootView.findViewById(R.id.fab);
+        mLayoutManager = new GridLayoutManager(getContext(),3);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        LoaderManager loaderManager = getSupportLoaderManager();
+        LoaderManager loaderManager = getActivity().getSupportLoaderManager();
         Loader<Cursor> loader = loaderManager.getLoader(NOTES_LOADER_ID);
         if (loader == null)
             loaderManager.initLoader(NOTES_LOADER_ID, null, new CursorCallback());
@@ -93,10 +93,11 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NotesBibleActivity.this, AddNoteActivity.class);
+                Intent intent = new Intent(getContext(), AddNoteActivity.class);
                 startActivity(intent);
             }
         });
+        return rootView;
     }
 
     @Override
@@ -107,7 +108,7 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
         mContentString = NotesContract.getStringFromCursor(mCursor,NotesContract.NotesEntry.COLUMN_NOTE_CONTENT);
         mDate = NotesContract.getLongFromCursor(mCursor, NotesContract.NotesEntry.COLUMN_DATE_CREATED);
         mCursorIndex = NotesContract.getIntFromCursor(mCursor, NotesContract.NotesEntry._ID);
-        Intent intent = new Intent(NotesBibleActivity.this, AddNoteActivity.class);
+        Intent intent = new Intent(getContext(), AddNoteActivity.class);
         intent.putExtra("Title", mTitle);
         intent.putExtra("Preacher", mPreacher);
         intent.putExtra("ContentString", mContentString);
@@ -121,7 +122,7 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 
-            return new CursorLoader(NotesBibleActivity.this,
+            return new CursorLoader(getContext(),
                     NotesContract.NotesEntry.CONTENT_URI,
                     null,
                     null,
@@ -142,14 +143,17 @@ public class NotesBibleActivity extends AppCompatActivity implements NotesAdapte
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
         mFireBaseAuth.addAuthStateListener(mAuthStateListener);
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         mFireBaseAuth.removeAuthStateListener(mAuthStateListener);
     }
+
+
+
 }
