@@ -41,46 +41,19 @@ public class NotesFullFragment extends Fragment implements NotesAdapter.NotesAda
     private long mDate;
     private int mCursorIndex;
 
-    // Choose an arbitrary request code value
-    private static final int RC_SIGN_IN = 123;
-    FirebaseAuth mFireBaseAuth;
-    FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_notes_bible, container, false);
 
-        mFireBaseAuth = FirebaseAuth.getInstance();
-        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                if (firebaseUser != null){
-                    //signed in
-                    String userName = firebaseUser.getDisplayName();
-                    Toast.makeText(getContext(), userName + " is logged in.!!! ", Toast.LENGTH_SHORT).show();
-                }else {
-                    //signed out
-                    startActivityForResult(
-                            AuthUI.getInstance()
-                                    .createSignInIntentBuilder()
-                                    .setIsSmartLockEnabled(!BuildConfig.DEBUG)
-                                    .setTheme(R.style.GreenTheme)
-                                    .setAvailableProviders(
-                                            Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
-                                                    new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build()))
-                                    .build(),
-                            RC_SIGN_IN);
-                }
-            }
-        };
+
         Stetho.initializeWithDefaults(getContext());
         mAdapter = new NotesAdapter(getContext(), NotesFullFragment.this);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.notes_rv);
         floatingActionButton = (FloatingActionButton) rootView.findViewById(R.id.fab);
-        mLayoutManager = new GridLayoutManager(getContext(),3);
+        mLayoutManager = new GridLayoutManager(getContext(), 3);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(mLayoutManager);
         LoaderManager loaderManager = getActivity().getSupportLoaderManager();
@@ -104,8 +77,8 @@ public class NotesFullFragment extends Fragment implements NotesAdapter.NotesAda
     public void voidMethod(Cursor mCursor, int adapterPosition) {
         mCursor.moveToPosition(adapterPosition);
         mTitle = NotesContract.getStringFromCursor(mCursor, NotesContract.NotesEntry.COLUMN_NOTE_TITLE);
-        mPreacher = NotesContract.getStringFromCursor(mCursor,NotesContract.NotesEntry.COLUMN_PREACHER);
-        mContentString = NotesContract.getStringFromCursor(mCursor,NotesContract.NotesEntry.COLUMN_NOTE_CONTENT);
+        mPreacher = NotesContract.getStringFromCursor(mCursor, NotesContract.NotesEntry.COLUMN_PREACHER);
+        mContentString = NotesContract.getStringFromCursor(mCursor, NotesContract.NotesEntry.COLUMN_NOTE_CONTENT);
         mDate = NotesContract.getLongFromCursor(mCursor, NotesContract.NotesEntry.COLUMN_DATE_CREATED);
         mCursorIndex = NotesContract.getIntFromCursor(mCursor, NotesContract.NotesEntry._ID);
         Intent intent = new Intent(getContext(), AddNoteActivity.class);
@@ -133,7 +106,7 @@ public class NotesFullFragment extends Fragment implements NotesAdapter.NotesAda
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-                    mAdapter.swapCursor(data);
+            mAdapter.swapCursor(data);
         }
 
         @Override
@@ -141,19 +114,5 @@ public class NotesFullFragment extends Fragment implements NotesAdapter.NotesAda
             mAdapter.swapCursor(null);
         }
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mFireBaseAuth.addAuthStateListener(mAuthStateListener);
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mFireBaseAuth.removeAuthStateListener(mAuthStateListener);
-    }
-
-
 
 }

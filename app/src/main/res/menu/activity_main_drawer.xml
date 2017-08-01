@@ -3,37 +3,41 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/news_page"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="News" />
+        <item
+            android:id="@+id/blogs"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/action_blogs" />
+        <item
             android:id="@+id/notes_menu"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/title_menu_notes" />
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/media"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:title="@string/media" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/live_page"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/live_page" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/calendar_page"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/calendar_page" />
     </group>
 
     <item android:title="Communicate">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/offerings"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:title="@string/offerings" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/about_us"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/about_us" />
         </menu>
     </item>
 
