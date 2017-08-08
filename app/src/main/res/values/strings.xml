@@ -7,13 +7,14 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_logout">Sign Out</string>
-    <string name="action_blogs">Blogs</string>
+    <string name="action_logout">Вти</string>
+    <string name="action_blogs">Блоги</string>
     <string name="sila_voscresenye">Сила Восвресения</string>
-    <string name="title_menu_notes">Notes</string>
-    <string name="media">Media</string>
-    <string name="offerings">Offerings</string>
-    <string name="about_us">About Us</string>
-    <string name="live_page">Live</string>
-    <string name="calendar_page">Calendar</string>
+    <string name="title_menu_notes">Ноты</string>
+    <string name="title_news">Новости</string>
+    <string name="media">Медиа</string>
+    <string name="offerings">Пожертвование</string>
+    <string name="about_us">О Нас</string>
+    <string name="live_page">Эфиры</string>
+    <string name="calendar_page">Календарь</string>
 </resources>

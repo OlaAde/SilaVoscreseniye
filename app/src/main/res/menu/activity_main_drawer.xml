@@ -5,7 +5,7 @@
         <item
             android:id="@+id/news_page"
             android:icon="@drawable/ic_menu_camera"
-            android:title="News" />
+            android:title="@string/title_news" />
         <item
             android:id="@+id/blogs"
             android:icon="@drawable/ic_menu_gallery"
@@ -28,7 +28,7 @@
             android:title="@string/calendar_page" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Сообщаться">
         <menu>
             <item
                 android:id="@+id/offerings"

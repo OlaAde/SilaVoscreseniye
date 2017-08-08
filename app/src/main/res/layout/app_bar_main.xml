@@ -33,7 +33,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SILA VOSCRESENIYE"
+                    android:text="@string/sila_voscresenye"
                     android:textStyle="bold"
                     android:textColor="@color/pure_white"/>
             </LinearLayout>
