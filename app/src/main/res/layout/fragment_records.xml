@@ -12,12 +12,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/audioButton"
         android:textSize="50sp"
-        android:fontFamily="serif-monospace"/>
+        android:fontFamily="serif-monospace"
+        android:background="#c12f2f"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="#ebff39"
         android:text="Video"
         android:textSize="50sp"
         android:fontFamily="serif-monospace"

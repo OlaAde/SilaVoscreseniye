@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        navigationView.getMenu().getItem(0).setChecked(true);
         NewsFragment newsFragment = new NewsFragment();
         mFragmentManager.beginTransaction()
                 .add(R.id.frame_for_fragments, newsFragment)
@@ -153,7 +153,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.offerings) {
 
         } else if (id == R.id.about_us) {
-
+            AboutUsFragment aboutUsFragment = new AboutUsFragment();
+            mFragmentManager.beginTransaction()
+                    .replace(R.id.frame_for_fragments, aboutUsFragment)
+                    .commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

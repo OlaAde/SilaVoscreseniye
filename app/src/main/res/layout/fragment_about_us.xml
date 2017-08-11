@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/about_us_tv_1"
+        tools:text="Добро пожаловать в церковь
+«Сила Воскресения»."
+        android:gravity="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/about_us_tv_2"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_margin="4dp"
+        android:fontFamily="sans-serif"
+        android:textSize="17sp"
+        tools:text="Если вы впервые на нашем сайте и только еще знакомитесь с церковью, то здесь вы найдете подробную информацию о нас и нашем служении. В нашей церкви есть место каждому, если Вы искренне ищете Бога и хотите видеть свою жизнь измененной, то эта церковь для вас! Что же Вы увидите и услышите, придя на наши воскресные богослужения? Во - первых понятное объяснение на современном русском языке Библейского послания. Во-вторых, прославление Бога на современных инструментах. В –третьих, если у вас есть какие-то особые нужды, скажем исцеление, мы молимся за них в конце собрания. Также Вы можете брать в церковь своих детей и во время собрания оставлять их в детской комнате, где с ними будут играть и заниматься их досугом (рисование, лепка и т.д.). На богослужениях можно присутствовать и не становясь постоянным членом церкви. Богослужения свободны для посещения всем желающим. Увидимся в ближайшее воскресение по адресу г. Казань, ул. Лаврентьева 17 на богослужении в 10:00, 12:00"/>
+</LinearLayout>
