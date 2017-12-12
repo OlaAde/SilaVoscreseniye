@@ -3,25 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="8dp">
+    android:gravity="center">
 
     <Button
-        android:layout_weight="1"
         android:text="Audio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/audioButton"
         android:textSize="50sp"
         android:fontFamily="serif-monospace"
-        android:background="#c12f2f"/>
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/white_1" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="#ebff39"
+        android:background="#3D1D02"
         android:text="Video"
         android:textSize="50sp"
+        android:textColor="@color/white_1"
         android:fontFamily="serif-monospace"
         android:id="@+id/videoButton"/>
 

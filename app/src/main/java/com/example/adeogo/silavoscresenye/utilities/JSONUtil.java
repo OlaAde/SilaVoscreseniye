@@ -1,5 +1,10 @@
 package com.example.adeogo.silavoscresenye.utilities;
 
+import android.support.annotation.NonNull;
+import android.util.Log;
+
+import com.example.adeogo.silavoscresenye.model.Video;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,27 +18,47 @@ import java.util.List;
  */
 
 public class JSONUtil {
-    public static JSONObject getChapterListObject(String JSONResponse, int bookIndex){
-        JSONObject chapterObject = null;
+
+    public static JSONArray getYoutubeArray(@NonNull String JSONResponse){
+        JSONArray listArray = null;
+
         try {
-            JSONArray jsonArray = new JSONArray(JSONResponse);
-            chapterObject = jsonArray.getJSONObject(bookIndex);
+
+            JSONObject object = new JSONObject(JSONResponse);
+            boolean checkBoolean ;
+            if(object == null)
+                checkBoolean = false;
+            else checkBoolean = true;
+            Log.v("Checking jjjnj", "Afdfdfnjb"+checkBoolean);
+            listArray = object.getJSONArray("items");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return chapterObject;
+        return listArray;
     }
 
-    public static List<String> getVersesList(JSONObject chapterListObject) throws JSONException {
-        List<String> verseList = new ArrayList<>();
+    public static List<Video> getVideoList(JSONArray jsonArray) throws JSONException {
+        List<Video> videoList = new ArrayList<>();
+        if (jsonArray == null)
+            return null;
+        for (int i = 0; i < jsonArray.length(); i++){
 
-        int id = 0;
-        String verse = chapterListObject.getString(Integer.toString(id));
-        while (verse!=null){
-            verseList.add(verse);
-            id++;
-            verse = chapterListObject.getString(Integer.toString(id));
+            JSONObject itemObject = jsonArray.getJSONObject(i);
+            JSONObject idObject = itemObject.getJSONObject("id");
+            String videoId = idObject.getString("videoId");
+            String videoUrl = "https://www.youtube.com/watch?v=" + videoId;
+
+            JSONObject snippetObject = itemObject.getJSONObject("snippet");
+            String dateString = snippetObject.getString("publishedAt");
+            String videoTitle = snippetObject.getString("title");
+
+            JSONObject thumbnailObject = snippetObject.getJSONObject("thumbnails");
+            JSONObject defaultObject = thumbnailObject.getJSONObject("default");
+            String thumbnailUrl = defaultObject.getString("url");
+            Video video = new Video(videoTitle, dateString, videoUrl,thumbnailUrl);
+
+            videoList.add(video);
         }
-        return verseList;
+        return videoList;
     }
 }

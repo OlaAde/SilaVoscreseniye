@@ -1,6 +1,7 @@
 package com.example.adeogo.silavoscresenye.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -50,12 +51,15 @@ public class RecordsFragment extends Fragment {
     }
 
     public void AudioButton(View v){
-        Toast.makeText(mContext, "AudioButton", Toast.LENGTH_SHORT).show();
+        Intent intent =  new Intent(getActivity(), AudioActivity.class);
+        startActivity(intent);
     }
 
 
     public void VideoButton(View v){
         Toast.makeText(mContext, "VideoButton", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), VideoActivity.class);
+        startActivity(intent);
     }
 
 

@@ -3,6 +3,11 @@
     package="com.example.adeogo.silavoscresenye">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
 
     <application
         android:allowBackup="true"
@@ -17,6 +22,45 @@
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
 
+        <activity
+            android:name=".ui.NewsActivity"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.AudioActivity"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.OfferingsActivity"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.ViewVideoActivity"
+            android:parentActivityName=".ui.VideoActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.VideoActivity"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.VideoStreamingActivity"
+            android:parentActivityName=".ui.MainActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
+
+
+            </activity>
+
         <provider
             android:name=".data.NotesProvider"
             android:authorities="com.example.adeogo.silavoscresenye"
@@ -25,12 +69,8 @@
         <activity
             android:name=".ui.MainActivity"
             android:label="@string/title_activity_main"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
-
-        </activity>
-        <activity android:name=".ui.SplashActivity"
-            android:theme="@style/SplashTheme"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,6 +78,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
+
+        </activity>
+
+
+
+        <!--<activity android:name=".ui.CalendarActivity"-->
+            <!--android:theme="@style/SplashTheme"-->
+            <!--android:screenOrientation="portrait">-->
+
+           <!---->
+        <!--</activity>-->
     </application>
 
 </manifest>

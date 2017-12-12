@@ -7,5 +7,4 @@
         <bitmap android:src="@drawable/sv_logo"
             android:gravity="center" />
     </item>
-
 </layer-list>

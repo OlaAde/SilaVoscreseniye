@@ -3,6 +3,10 @@ package com.example.adeogo.silavoscresenye.utilities;
 import android.net.Uri;
 import android.util.Log;
 
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -16,13 +20,17 @@ import java.util.Scanner;
 
 public class NetworkUtil {
 
-    private static String KJV_ENGLISH = "https://raw.githubusercontent.com/thiagobodruk/bible/master/json/en_kjv.json";
-    public static URL buildUrl(){
+    public static Uri buildURi(String urlString){
+        Uri builtUri = Uri.parse(urlString).buildUpon()
+                .build();
+        return builtUri;
+    }
+    public static URL buildUrl(String urlString){
         Uri.Builder builder = new Uri.Builder();
-        builder.scheme(KJV_ENGLISH);
+        builder.scheme(urlString);
         Uri builtUri = builder.build();
+
         URL url = null;
-        Log.v("Link to KJV Bible",builtUri.toString());
         try {
             url = new URL(builtUri.toString());
         } catch (MalformedURLException e) {
@@ -33,24 +41,19 @@ public class NetworkUtil {
 
 
     public static String getResponseFromHttpUrl(URL url) throws IOException {
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        try {
-            InputStream in = urlConnection.getInputStream();
 
-            Scanner scanner = new Scanner(in);
-            scanner.useDelimiter("\\A");
+            Log.v("Link to KJV Bible",url.toString());
 
-            boolean hasInput = scanner.hasNext();
-            if (hasInput) {
-                Log.v("E showwwwwwwwwwwbnm,...", scanner.next());
-                return scanner.next();
 
-            } else {
-                return null;
-            }
-        } finally {
-            urlConnection.disconnect();
-        }
+        OkHttpClient client = new OkHttpClient();
+        // code request code here
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+
+            Response response = client.newCall(request).execute();
+            return response.body().string();
     }
 
 }

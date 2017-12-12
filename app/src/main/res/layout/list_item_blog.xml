@@ -1,64 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
     android:layout_width="match_parent"
-    android:layout_height="180dp"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
-        android:padding="2dp"
-        android:background="@color/colorAccent"
-        android:gravity="center">
+        android:background="#e9e9e9"
+        android:padding="8dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxHeight="150dp"
-            android:id="@+id/blog_title_tv"
-            tools:text="God is a healer and he will heal you"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"
-            android:maxLines="2"
-            android:gravity="center"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/author_blog_tv"
-            tools:text="Pastor williams"
-            android:gravity="center"
-            android:textStyle="italic"
-            android:maxLines="1"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/short_content_blog_tv"
-            android:gravity="center"
-            android:maxLines="3"
-            tools:text="I have been doing Android app development for over two years now and I have gone through training by Google and Udacity.
-
-
-I will upload the app on google PlayStore
-
-Hi, I would love to work on your project
-
-Hey, I'm interested in your project. Please send me a message so that we can discuss more."
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            android:maxLength="50" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/believe2"
+            android:id="@+id/blog_iv"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/date_blog_tv"
-            tools:text="20 April 2017"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
+            android:text= "Почему звезды?"
+            android:id="@+id/blog_title_tv"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Light.Widget.PopupMenu.Small"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="03.07.2017"
+            android:textSize="12sp"
+            android:id="@+id/blog_date_tv"
+            android:textStyle="normal"/>
     </LinearLayout>
 </android.support.v7.widget.CardView >

@@ -2,7 +2,6 @@ package com.example.adeogo.silavoscresenye.ui;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -14,18 +13,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.adeogo.silavoscresenye.BuildConfig;
 import com.example.adeogo.silavoscresenye.R;
 import com.example.adeogo.silavoscresenye.adapter.NotesAdapter;
 import com.example.adeogo.silavoscresenye.data.NotesContract;
 import com.facebook.stetho.Stetho;
-import com.firebase.ui.auth.AuthUI;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.util.Arrays;
 
 public class NotesFullFragment extends Fragment implements NotesAdapter.NotesAdapterOnclickHandler {
 
@@ -46,7 +38,7 @@ public class NotesFullFragment extends Fragment implements NotesAdapter.NotesAda
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View rootView = inflater.inflate(R.layout.fragment_notes_bible, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_notes_list, container, false);
 
 
         Stetho.initializeWithDefaults(getContext());

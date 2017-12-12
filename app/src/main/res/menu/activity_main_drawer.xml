@@ -7,10 +7,6 @@
             android:icon="@drawable/news"
             android:title="@string/title_news" />
         <item
-            android:id="@+id/blogs"
-            android:icon="@drawable/blog"
-            android:title="@string/action_blogs" />
-        <item
             android:id="@+id/notes_menu"
             android:icon="@drawable/notes"
             android:title="@string/title_menu_notes" />

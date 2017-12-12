@@ -16,33 +16,33 @@ import com.example.adeogo.silavoscresenye.model.Blog;
  * Created by Adeogo on 7/31/2017.
  */
 
-public class BlogsAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class BlogsCursorAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder>{
     Context mContext;
     private Cursor mCursor = null;
 
-    public BlogsAdapter( Context context,BlogsAdapter.BlogsAdapterOnclickHandler blogsAdapterOnclickHandler){
+    public BlogsCursorAdapter(Context context, BlogsCursorAdapter.BlogsCursorAdapterOnclickHandler blogsAdapterOnclickHandler){
         mContext = context;
         mClickHandler = blogsAdapterOnclickHandler;
     }
 
-    private final BlogsAdapter.BlogsAdapterOnclickHandler mClickHandler;
+    private final BlogsCursorAdapterOnclickHandler mClickHandler;
 
-    public interface BlogsAdapterOnclickHandler{
+    public interface BlogsCursorAdapterOnclickHandler {
         void voidMethod(Cursor mCursor, int adapterPosition);
     }
 
-    public class BlogsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class BlogsCursorAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public final TextView mTitleTextView;
-        public final TextView mAuthorTextView;
-        public final TextView mDateCreatedTextView;
-        public final TextView mContentTextView;
+//        public final TextView mAuthorTextView;
+//        public final TextView mDateCreatedTextView;
+//        public final TextView mContentTextView;
 
-        public BlogsAdapterViewHolder(View itemView) {
+        public BlogsCursorAdapterViewHolder(View itemView) {
             super(itemView);
             mTitleTextView = (TextView) itemView.findViewById(R.id.blog_title_tv);
-            mAuthorTextView = (TextView) itemView.findViewById(R.id.author_blog_tv);
-            mDateCreatedTextView = (TextView) itemView.findViewById(R.id.date_blog_tv);
-            mContentTextView = (TextView) itemView.findViewById(R.id.short_content_blog_tv);
+//            mAuthorTextView = (TextView) itemView.findViewById(R.id.author_blog_tv);
+//            mDateCreatedTextView = (TextView) itemView.findViewById(R.id.date_blog_tv);
+//            mContentTextView = (TextView) itemView.findViewById(R.id.short_content_blog_tv);
             itemView.setOnClickListener(this);
         }
 
@@ -56,7 +56,7 @@ public class BlogsAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder>
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view  = layoutInflater.inflate(R.layout.list_item_blog, parent, false);
-        return new BlogsAdapter.BlogsAdapterViewHolder(view);
+        return new BlogsCursorAdapter.BlogsCursorAdapterViewHolder(view);
     }
 
     @Override
@@ -76,10 +76,10 @@ public class BlogsAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder>
             formatStringDate = DateUtils.getRelativeTimeSpanString(mContext, dateCreated).toString();
         }
 
-        ((BlogsAdapter.BlogsAdapterViewHolder) holder).mTitleTextView.setText(blogTitle);
-        ((BlogsAdapterViewHolder) holder).mAuthorTextView.setText(author);
-        ((BlogsAdapter.BlogsAdapterViewHolder) holder).mContentTextView.setText(blogContent);
-        ((BlogsAdapter.BlogsAdapterViewHolder) holder).mDateCreatedTextView.setText(formatStringDate);
+        ((BlogsCursorAdapter.BlogsCursorAdapterViewHolder) holder).mTitleTextView.setText(blogTitle);
+//        ((BlogsCursorAdapterViewHolder) holder).mAuthorTextView.setText(author);
+//        ((BlogsCursorAdapter.BlogsCursorAdapterViewHolder) holder).mContentTextView.setText(blogContent);
+//        ((BlogsCursorAdapter.BlogsCursorAdapterViewHolder) holder).mDateCreatedTextView.setText(formatStringDate);
     }
 
     @Override

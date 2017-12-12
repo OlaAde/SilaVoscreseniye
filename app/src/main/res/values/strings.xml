@@ -17,4 +17,6 @@
     <string name="about_us">О Нас</string>
     <string name="live_page">Эфиры</string>
     <string name="calendar_page">Календарь</string>
+    <string name="json">
+    </string>
 </resources>

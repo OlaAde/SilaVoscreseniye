@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -41,6 +42,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("");
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!= null && extras.containsKey("text")){
+            Intent intent = new Intent(this, VideoStreamingActivity.class);
+            intent.putExtra("test", extras.getString("test"));
+            Log.v("Contains", extras.getString("test"));
+            startActivity(intent);
+        }
 
         mFragmentManager = getSupportFragmentManager();
 
@@ -144,18 +153,30 @@ public class MainActivity extends AppCompatActivity
                     .commit();
             Toast.makeText(this, "News Page", Toast.LENGTH_SHORT).show();
             // Handle the camera action
-        } else if (id == R.id.blogs) {
-            BlogsFragment blogsFragment = new BlogsFragment();
-            mFragmentManager.beginTransaction()
-                    .replace(R.id.frame_for_fragments, blogsFragment)
-                    .commit();
-            Toast.makeText(this, "Blogs Page", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.offerings) {
 
+            OfferingsFragment offeringsFragment =  new OfferingsFragment();
+            mFragmentManager.beginTransaction()
+                    .replace(R.id.frame_for_fragments, offeringsFragment)
+                    .commit();
         } else if (id == R.id.about_us) {
             AboutUsFragment aboutUsFragment = new AboutUsFragment();
             mFragmentManager.beginTransaction()
                     .replace(R.id.frame_for_fragments, aboutUsFragment)
+                    .commit();
+        }
+
+        else if (id == R.id.calendar_page){
+            CalendarFragment calendarFragment = new CalendarFragment();
+            mFragmentManager.beginTransaction()
+                    .replace(R.id.frame_for_fragments, calendarFragment)
+                    .commit();
+        }
+
+        else if (id == R.id.live_page){
+            OnlineFragment onlineFragment =  new OnlineFragment();
+            mFragmentManager.beginTransaction()
+                    .replace(R.id.frame_for_fragments, onlineFragment)
                     .commit();
         }
 
