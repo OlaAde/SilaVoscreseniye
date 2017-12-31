@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,6 +75,8 @@ public class VideoAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder>
             videoTitle = video.getTitle();
             videoDate = video.getDateUploaded();
             thumbnailUrl = video.getThumbnailUrl();
+
+
             url = video.getUrl();
         }
 

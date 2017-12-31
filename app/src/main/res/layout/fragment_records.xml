@@ -8,17 +8,20 @@
     <Button
         android:text="Audio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:id="@+id/audioButton"
         android:textSize="50sp"
         android:fontFamily="serif-monospace"
         android:background="@color/colorPrimary"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="6dp"
+        android:paddingBottom="5dp"
         android:textColor="@color/white_1" />
 
     <Button
+        android:paddingBottom="6dp"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:background="#3D1D02"
         android:text="Video"
         android:textSize="50sp"

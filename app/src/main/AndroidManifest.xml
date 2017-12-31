@@ -42,7 +42,6 @@
 
         <activity
             android:name=".ui.ViewVideoActivity"
-            android:parentActivityName=".ui.VideoActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
 

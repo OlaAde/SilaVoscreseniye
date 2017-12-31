@@ -57,7 +57,6 @@ public class RecordsFragment extends Fragment {
 
 
     public void VideoButton(View v){
-        Toast.makeText(mContext, "VideoButton", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getActivity(), VideoActivity.class);
         startActivity(intent);
     }

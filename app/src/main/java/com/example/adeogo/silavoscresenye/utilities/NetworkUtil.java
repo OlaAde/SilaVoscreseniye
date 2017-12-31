@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.Scanner;
 
 /**
@@ -25,6 +26,7 @@ public class NetworkUtil {
                 .build();
         return builtUri;
     }
+
     public static URL buildUrl(String urlString){
         Uri.Builder builder = new Uri.Builder();
         builder.scheme(urlString);
@@ -39,21 +41,62 @@ public class NetworkUtil {
         return url;
     }
 
+    public static String getCalendarResponseFromHttpUrl(String url) throws  IOException{
+        URLConnection connection = new URL(url).openConnection();
+        InputStream response = connection.getInputStream();
+
+        try {
+
+            Scanner scanner = new Scanner(response);
+            scanner.useDelimiter("\\A");
+
+            boolean hasInput = scanner.hasNext();
+            if (hasInput) {
+                return scanner.next();
+            } else {
+                return null;
+            }
+        } finally {
+        }
+
+    }
 
     public static String getResponseFromHttpUrl(URL url) throws IOException {
+//
+//
+//
+//
+//        OkHttpClient client = new OkHttpClient();
+//        // code request code here
+//
+//            Request request = new Request.Builder()
+//                    .url(url)
+//                    .build();
+//
+//            Response response = client.newCall(request).execute();
+//
+//             Log.v("Link to KJV Bible",response.body().string());
+//            return response.body().string();
 
-            Log.v("Link to KJV Bible",url.toString());
 
 
-        OkHttpClient client = new OkHttpClient();
-        // code request code here
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        try {
+            InputStream in = urlConnection.getInputStream();
 
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
+            Scanner scanner = new Scanner(in);
+            scanner.useDelimiter("\\A");
 
-            Response response = client.newCall(request).execute();
-            return response.body().string();
+            boolean hasInput = scanner.hasNext();
+            if (hasInput) {
+                return scanner.next();
+            } else {
+                return null;
+            }
+        } finally {
+            urlConnection.disconnect();
+        }
+
     }
 
 }
