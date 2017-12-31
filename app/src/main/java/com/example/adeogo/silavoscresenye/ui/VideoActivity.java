@@ -69,7 +69,6 @@ public class VideoActivity extends AppCompatActivity implements VideoAdapter.Vid
 
         Intent intent = new Intent(this, ViewVideoActivity.class);
         intent.putExtra("video_url", video.getUrl());
-        Toast.makeText(this, video.getUrl(), Toast.LENGTH_SHORT).show();
         startActivity(intent);
     }
 
